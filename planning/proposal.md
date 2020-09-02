@@ -6,9 +6,15 @@ I plan to construct a full stack application for BBQ enthusiasts! This will incl
 
 ## Wire-frames
 
-### MVP
+### Homepage
+<img width="912" alt="Screen Shot 2020-09-02 at 7 36 22 PM" src="https://user-images.githubusercontent.com/67292469/92047698-ccaa4200-ed53-11ea-8025-a2bc98065959.png">
 
-### Gold
+
+### Recipe List
+<img width="912" alt="Screen Shot 2020-09-02 at 7 36 29 PM" src="https://user-images.githubusercontent.com/67292469/92047729-dfbd1200-ed53-11ea-90b8-c0732333f91c.png">
+
+### Single Recipe
+<img width="912" alt="Screen Shot 2020-09-02 at 7 36 46 PM" src="https://user-images.githubusercontent.com/67292469/92047778-ff543a80-ed53-11ea-8f9f-9012f080fc5f.png">
 
 ## User Stories
 
@@ -44,6 +50,6 @@ I plan to construct a full stack application for BBQ enthusiasts! This will incl
 - Home
 - Recipes (probably hamburger dropdown with full recipes, sauces, rubs, injections)
 - Timer
-- Sign-in/op/out
+- Sign-in/up/out
 - My Profile (shows users favorited, posts)
 - Smoker Builds
