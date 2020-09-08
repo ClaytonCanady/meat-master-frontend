@@ -6,6 +6,9 @@ import { Route, Link } from 'react-router-dom';
 import Home from './Home'
 import RecipeList from './RecipeList'
 import Timer from './Timer'
+import SignUp from './SignUp'
+import LogIn from './LogIn'
+
 
 import SingleRecipe from './SingleRecipe'
 function App() {
@@ -20,14 +23,22 @@ function App() {
 					<Link to='/recipe-list'>
 						<Button variant='dark'>Recipes</Button>
 					</Link>
-          <Link to='/timer'>
+					<Link to='/timer'>
 						<Button variant='dark'>Timer</Button>
-          </Link>
+					</Link>
+					<Link to='/signUp'>
+						<Button variant='dark'>Sign Up</Button>
+					</Link>
+					<Link to='/logIn'>
+						<Button variant='dark'>Log In</Button>
+					</Link>
 				</Nav>
 			</header>
 			<main>
 				<Route path='/' exact component={Home} />
-        <Route path='/timer' component={Timer}/>
+				<Route path='/timer' component={Timer} />
+				<Route path='/signUp' component={SignUp} />
+				<Route path='/logIn' component={LogIn} />
 				<Route
 					path='/recipe-list'
 					render={() => {
