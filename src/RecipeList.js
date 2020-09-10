@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
 function RecipeList(props) {
 	const [data, setData] = useState([]);
 	const [name, setName] = useState([]);
@@ -11,7 +12,7 @@ function RecipeList(props) {
 	const fetchData = async () => {
 		const result = await axios('http://localhost:8000/recipes', {
 			headers: {
-				authorization: `Bearer ${localStorage.getItem('access_token')}`,
+				authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 			},
 		});
 		setData(result.data);
@@ -27,10 +28,11 @@ function RecipeList(props) {
 					ingredients: `${ingredients}`,
 					instructions: `${instructions}`,
 					photo_url: `${photoUrl}`,
+					author: `${sessionStorage.getItem(`username`)}`
 				},
 				{
 					headers: {
-						authorization: `Bearer ${localStorage.getItem('access_token')}`,
+						authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 					},
 				}
 			)
@@ -57,39 +59,51 @@ function RecipeList(props) {
 					</div>
 				))}
 			<div className='recipe-form'>
-				<form onSubmit={addRecipe}>
-					<label htmlFor='name'>name</label>
-					<input
-						type='text'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					/>
-					<label htmlFor='description'>description</label>
-					<input
-						type='text'
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-					<label htmlFor='ingredients'>ingredients</label>
-					<input
-						type='text'
-						value={ingredients}
-						onChange={(e) => setIngredients(e.target.value)}
-					/>
-					<label htmlFor='instructions'>instructions</label>
-					<input
-						type='text'
-						value={instructions}
-						onChange={(e) => setInstructions(e.target.value)}
-					/>
-					<label htmlFor='photoUrl'>photo url</label>
-					<input
-						type='text'
-						value={photoUrl}
-						onChange={(e) => setPhotoUrl(e.target.value)}
-					/>
-					<input type='submit' />
-				</form>
+				<Modal.Dialog>
+					<Modal.Header>
+						<Modal.Title>Add a New Recipe</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<form onSubmit={addRecipe}>
+							<label htmlFor='name'>Name</label>
+							<input
+								type='text'
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+							/>
+							<br />
+							<label htmlFor='description'>Description</label>
+							<input
+								type='text'
+								value={description}
+								onChange={(e) => setDescription(e.target.value)}
+							/>
+							<br />
+							<label htmlFor='ingredients'>Ingredients</label>
+							<input
+								type='text'
+								value={ingredients}
+								onChange={(e) => setIngredients(e.target.value)}
+							/>
+							<br />
+							<label htmlFor='instructions'>Instructions</label>
+							<input
+								type='text'
+								value={instructions}
+								onChange={(e) => setInstructions(e.target.value)}
+							/>
+							<br />
+							<label htmlFor='photoUrl'>Photo-url</label>
+							<input
+								type='text'
+								value={photoUrl}
+								onChange={(e) => setPhotoUrl(e.target.value)}
+							/>
+							<br />
+							<input type='submit' />
+						</form>
+					</Modal.Body>
+				</Modal.Dialog>
 			</div>
 		</div>
 	);

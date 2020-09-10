@@ -14,24 +14,33 @@ import SingleRecipe from './SingleRecipe'
 
 function App() {
 	function logOut() {
-		localStorage.setItem('access_token', '');
-		localStorage.setItem('refresh_token', 'response.data.refresh');
+		sessionStorage.removeItem('access_token');
+		sessionStorage.removeItem('refresh_token');
+		sessionStorage.removeItem('username');
 	}
-
-
-  return (
-		<div className='App'>
-			<header>
-				<h1>Meat Master</h1>
-				<Nav variant='tabs'>
+	const navBar = () => {
+		if (sessionStorage.access_token) {
+			return (
+				<div>
 					<Link to='/'>
 						<Button variant='dark'>Home</Button>
 					</Link>
 					<Link to='/recipe-list'>
 						<Button variant='dark'>Recipes</Button>
 					</Link>
-					<Link to='/timer'>
-						<Button variant='dark'>Timer</Button>
+					<Button variant='dark' onClick={logOut}>
+						Log-out
+					</Button>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<Link to='/'>
+						<Button variant='dark'>Home</Button>
+					</Link>
+					<Link to='/recipe-list'>
+						<Button variant='dark'>Recipes</Button>
 					</Link>
 					<Link to='/signUp'>
 						<Button variant='dark'>Sign Up</Button>
@@ -39,10 +48,22 @@ function App() {
 					<Link to='/logIn'>
 						<Button variant='dark'>Log In</Button>
 					</Link>
-					<Button variant='dark' onClick={logOut}>Log-out</Button>
+				</div>
+			);
+		}
+	}
+
+  return (
+		<div className='App'>
+			<header>
+				<h1>Meat Master</h1>
+				<Nav variant='tabs'>
+				{navBar()}
+					
 				</Nav>
 			</header>
 			<main>
+				
 				<Route path='/' exact component={Home} />
 				<Route path='/timer' component={Timer} />
 				<Route path='/signUp' component={SignUp} />

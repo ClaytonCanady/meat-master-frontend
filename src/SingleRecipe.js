@@ -8,7 +8,7 @@ function SingleRecipe(props) {
 			`http://localhost:8000/recipes/${props.match.params.recipeID}`,
 			{
 				headers: {
-					authorization: `Bearer ${localStorage.getItem('access_token')}`,
+					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 				},
 			}
 		);
@@ -27,6 +27,8 @@ function SingleRecipe(props) {
 			<p>{data.ingredients}</p>
 			<h4>Instructions</h4>
 			<p>{data.instructions}</p>
+			<h4>Author</h4>
+			<p>{data.author}</p>
 		</div>
 	);
 }
