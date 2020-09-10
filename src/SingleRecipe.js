@@ -2,10 +2,15 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 function SingleRecipe(props) {
 	const [data, setData] = useState([]);
-	
+
 	const fetchData = async () => {
 		const result = await axios(
-			`http://localhost:8000/recipes/${props.match.params.recipeID}`
+			`http://localhost:8000/recipes/${props.match.params.recipeID}`,
+			{
+				headers: {
+					authorization: `Bearer ${localStorage.getItem('access_token')}`,
+				},
+			}
 		);
 		setData(result.data);
 	};

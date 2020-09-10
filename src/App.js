@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button, Nav } from 'react-bootstrap';
+import { Button, Nav, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Link } from 'react-router-dom';
 import Home from './Home'
@@ -11,7 +11,14 @@ import LogIn from './LogIn'
 
 
 import SingleRecipe from './SingleRecipe'
+
 function App() {
+	function logOut() {
+		localStorage.setItem('access_token', '');
+		localStorage.setItem('refresh_token', 'response.data.refresh');
+	}
+
+
   return (
 		<div className='App'>
 			<header>
@@ -32,6 +39,7 @@ function App() {
 					<Link to='/logIn'>
 						<Button variant='dark'>Log In</Button>
 					</Link>
+					<Button variant='dark' onClick={logOut}>Log-out</Button>
 				</Nav>
 			</header>
 			<main>
