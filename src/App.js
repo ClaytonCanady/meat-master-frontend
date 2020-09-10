@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button, Nav, Modal } from 'react-bootstrap';
+import { Button, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Link } from 'react-router-dom';
 import Home from './Home'
@@ -17,6 +17,7 @@ function App() {
 		sessionStorage.removeItem('access_token');
 		sessionStorage.removeItem('refresh_token');
 		sessionStorage.removeItem('username');
+		window.location = '/';
 	}
 	const navBar = () => {
 		if (sessionStorage.access_token) {

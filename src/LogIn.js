@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import {  Modal } from 'react-bootstrap';
+
 function LogIn() {
 	const [username, setUserName] = useState([]);
 	const [password, setPassword] = useState([]);
@@ -15,6 +16,7 @@ function LogIn() {
 				sessionStorage.setItem('access_token', response.data.access);
                 sessionStorage.setItem('refresh_token', response.data.refresh);
                 sessionStorage.setItem('username',  `${username}` );
+                window.location = '/';
 			});;
 	};
 	return (

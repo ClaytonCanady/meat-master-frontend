@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {  Modal } from 'react-bootstrap';
 function SignUp() {
@@ -24,8 +23,9 @@ function SignUp() {
 						sessionStorage.setItem('access_token', response.data.access);
 						sessionStorage.setItem('refresh_token', response.data.refresh);
 						sessionStorage.setItem('username', `${username}`);
+						window.location = '/';
 					});
-			});
+			})   
 	};
 	return (
 		<div>
