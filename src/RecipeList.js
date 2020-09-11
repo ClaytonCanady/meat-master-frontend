@@ -9,13 +9,15 @@ function RecipeList(props) {
 	const [ingredients, setIngredients] = useState('');
 	const [instructions, setInstructions] = useState('');
 	const [photoUrl, setPhotoUrl] = useState('');
-	const fetchData = async () => {
-		const result = await axios('http://localhost:8000/recipes', {
-			headers: {
-				authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
-			},
-		});
-		setData(result.data);
+	const fetchData =  () => {
+		axios
+			.get('http://localhost:8000/recipes', {
+				headers: {
+					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
+				},
+			})
+			.then((result) => setData(result.data));
+		
 	};
 	const addRecipe = (e) => {
 		e.preventDefault();
@@ -47,58 +49,66 @@ function RecipeList(props) {
 		fetchData();
 	}, []);
 	return (
-		<div className='container'>
-			{data &&
-				data.map((recipe) => (
-					<div key={recipe.id} className='recipe'>
-						<img src={recipe.photo_url} alt='' />
-						<Link to={/recipe/ + recipe.id} recipe={recipe.id}>
-							<h4>{recipe.name}</h4>
-						</Link>
-						<p>{recipe.description}</p>
-					</div>
-				))}
+		<div>
+			<div className='container'>
+				{data &&
+					data.map((recipe) => (
+						<div key={recipe.id} className='recipe'>
+							<img src={recipe.photo_url} alt='' />
+							<Link to={/recipe/ + recipe.id} recipe={recipe.id}>
+								<h4>{recipe.name}</h4>
+							</Link>
+							<p>{recipe.description}</p>
+						</div>
+					))}
+			</div>
 			<div className='recipe-form'>
 				<Modal.Dialog>
-					<Modal.Header>
+					<Modal.Header closeButton>
 						<Modal.Title>Add a New Recipe</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<form onSubmit={addRecipe}>
+						<form onSubmit={addRecipe} className='add-recipe'>
 							<label htmlFor='name'>Name</label>
-							<input
+							<br />
+							<textarea
 								type='text'
 								value={name}
 								onChange={(e) => setName(e.target.value)}
 							/>
 							<br />
 							<label htmlFor='description'>Description</label>
-							<input
+							<br />
+							<textarea
 								type='text'
 								value={description}
 								onChange={(e) => setDescription(e.target.value)}
 							/>
 							<br />
 							<label htmlFor='ingredients'>Ingredients</label>
-							<input
+							<br />
+							<textarea
 								type='text'
 								value={ingredients}
 								onChange={(e) => setIngredients(e.target.value)}
 							/>
 							<br />
 							<label htmlFor='instructions'>Instructions</label>
-							<input
+							<br />
+							<textarea
 								type='text'
 								value={instructions}
 								onChange={(e) => setInstructions(e.target.value)}
 							/>
 							<br />
 							<label htmlFor='photoUrl'>Photo-url</label>
-							<input
+							<br />
+							<textarea
 								type='text'
 								value={photoUrl}
 								onChange={(e) => setPhotoUrl(e.target.value)}
 							/>
+							<br />
 							<br />
 							<input type='submit' />
 						</form>

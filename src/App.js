@@ -8,7 +8,7 @@ import RecipeList from './RecipeList'
 import Timer from './Timer'
 import SignUp from './SignUp'
 import LogIn from './LogIn'
-
+import MyAccount from './MyAccount'
 
 import SingleRecipe from './SingleRecipe'
 
@@ -28,6 +28,9 @@ function App() {
 					</Link>
 					<Link to='/recipe-list'>
 						<Button variant='dark'>Recipes</Button>
+					</Link>
+					<Link to='/my-account'>
+						<Button variant='dark'>My-Account</Button>
 					</Link>
 					<Button variant='dark' onClick={logOut}>
 						Log-out
@@ -58,13 +61,9 @@ function App() {
 		<div className='App'>
 			<header>
 				<h1>Meat Master</h1>
-				<Nav variant='tabs'>
-				{navBar()}
-					
-				</Nav>
+				<Nav variant='tabs'>{navBar()}</Nav>
 			</header>
 			<main>
-				
 				<Route path='/' exact component={Home} />
 				<Route path='/timer' component={Timer} />
 				<Route path='/signUp' component={SignUp} />
@@ -79,6 +78,12 @@ function App() {
 					path='/recipe/:recipeID'
 					render={(routerProps) => {
 						return <SingleRecipe match={routerProps.match} return />;
+					}}
+				/>
+				<Route
+					path='/my-account'
+					render={() => {
+						return <MyAccount return />;
 					}}
 				/>
 			</main>

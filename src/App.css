@@ -15,7 +15,7 @@ header {
 	padding-left: 25px;
 	padding-right: 25px;
 }
- img {
+img {
 	height: 50vh;
 	width: 50vw;
 }
@@ -24,9 +24,9 @@ header {
 	width: 80vw;
 }
 .container {
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
-	flex-basis: content;
+	/* flex-basis: content; */
 	width: 100vw;
 }
 
@@ -38,4 +38,28 @@ header {
 .recipe img {
 	height: 20vh;
 	width: auto;
+}
+
+textarea {
+	height: 100px;
+	width: 250px;
+}
+
+.add-recipe {
+	display: flex-box;
+	align-items: center;
+}
+
+.add-recipe label {
+	padding-top: 20px;
+}
+
+h3 {
+	text-align: center;
+}
+.recipe button {
+	padding: 5px;
+	margin: 10px;
+	background-color: rgb(97, 52, 52);
+	color: rgb(255, 255, 255);
 }

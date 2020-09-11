@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react';
 function SingleRecipe(props) {
 	const [data, setData] = useState([]);
 
-	const fetchData = async () => {
-		const result = await axios(
+	const fetchData =  () => {
+		axios.get(
 			`http://localhost:8000/recipes/${props.match.params.recipeID}`,
 			{
 				headers: {
 					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 				},
 			}
-		);
-		setData(result.data);
+		).then((result) => setData(result.data))
+		
 	};
 	useEffect(() => {
 		fetchData();
