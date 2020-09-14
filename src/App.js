@@ -3,15 +3,15 @@ import './App.css';
 import { Button, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Link } from 'react-router-dom';
-import Home from './Home'
-import RecipeList from './RecipeList'
-import Timer from './Timer'
-import SignUp from './SignUp'
-import LogIn from './LogIn'
-import MyAccount from './MyAccount'
+import Home from './Home';
+import RecipeList from './RecipeList';
+import Timer from './Timer';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
+import MyAccount from './MyAccount';
 
-import SingleRecipe from './SingleRecipe'
-
+import SingleRecipe from './SingleRecipe';
+// use session storage instead of local
 function App() {
 	function logOut() {
 		sessionStorage.removeItem('access_token');
@@ -55,9 +55,9 @@ function App() {
 				</div>
 			);
 		}
-	}
+	};
 
-  return (
+	return (
 		<div className='App'>
 			<header>
 				<h1>Meat Master</h1>
