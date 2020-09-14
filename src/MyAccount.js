@@ -17,7 +17,7 @@ function MyAccount() {
 				setInstructions(result.data.instructions);
 				setIngredients(result.data.ingredients);
 				setDescription(result.data.description);
-				setPhotoUrl(result.data.photoUrl);
+				setPhotoUrl(result.data.photo_url);
 				setId(result.data.id);
 			})
 			.then((result) => {
@@ -33,11 +33,14 @@ function MyAccount() {
 	const [photoUrl, setPhotoUrl] = useState('');
 	const [id, setId] = useState('');
 	const fetchData = async () => {
-		const result = await axios('https://meat-master-backend.herokuapp.com/recipes', {
-			headers: {
-				authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
-			},
-		});
+		const result = await axios(
+			'https://meat-master-backend.herokuapp.com/recipes',
+			{
+				headers: {
+					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
+				},
+			}
+		);
 		setData(result.data);
 	};
 	const editRecipe = (e, recipe) => {
