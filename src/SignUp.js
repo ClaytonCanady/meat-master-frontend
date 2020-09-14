@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 function SignUp() {
 	const [username, setUserName] = useState([]);
 	const [password, setPassword] = useState([]);
@@ -8,14 +8,14 @@ function SignUp() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:8000/users/register', {
+			.post('https://meat-master-backend.herokuapp.com/users/register', {
 				email: `${email}`,
 				username: `${username}`,
 				password: `${password}`,
 			})
 			.then(() => {
 				axios
-					.post('http://localhost:8000/api/token/', {
+					.post('https://meat-master-backend.herokuapp.com/api/token/', {
 						username: `${username}`,
 						password: `${password}`,
 					})
@@ -25,7 +25,7 @@ function SignUp() {
 						sessionStorage.setItem('username', `${username}`);
 						window.location = '/';
 					});
-			})   
+			});
 	};
 	return (
 		<div>

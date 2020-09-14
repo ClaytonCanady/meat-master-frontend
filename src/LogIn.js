@@ -8,15 +8,15 @@ function LogIn() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:8000/api/token/', {
+			.post('https://meat-master-backend.herokuapp.com/api/token/', {
 				username: `${username}`,
 				password: `${password}`,
 			})
 			.then((response) => {
 				sessionStorage.setItem('access_token', response.data.access);
-                sessionStorage.setItem('refresh_token', response.data.refresh);
-                sessionStorage.setItem('username',  `${username}` );
-                window.location = '/';
+				sessionStorage.setItem('refresh_token', response.data.refresh);
+				sessionStorage.setItem('username', `${username}`);
+				window.location = '/';
 			});;
 	};
 	return (
