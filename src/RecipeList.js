@@ -11,7 +11,7 @@ function RecipeList(props) {
 	const [photoUrl, setPhotoUrl] = useState('');
 	const fetchData =  () => {
 		axios
-			.get('http://localhost:8000/recipes', {
+			.get('https://meat-master-backend.herokuapp.com/recipes', {
 				headers: {
 					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 				},
@@ -23,7 +23,7 @@ function RecipeList(props) {
 		e.preventDefault();
 		axios
 			.post(
-				'http://localhost:8000/recipes',
+				'https://meat-master-backend.herokuapp.com/recipes',
 				{
 					name: `${name}`,
 					description: `${description}`,

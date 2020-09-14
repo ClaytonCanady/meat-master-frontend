@@ -7,7 +7,7 @@ function MyAccount() {
 	const handleClose = () => setShow(false);
 	const handleShow = (recipe) => {
 		axios
-			.get(`http://localhost:8000/recipes/${recipe}`, {
+			.get(`https://meat-master-backend.herokuapp.com/recipes/${recipe}`, {
 				headers: {
 					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 				},
@@ -33,7 +33,7 @@ function MyAccount() {
 	const [photoUrl, setPhotoUrl] = useState('');
 	const [id, setId] = useState('');
 	const fetchData = async () => {
-		const result = await axios('http://localhost:8000/recipes', {
+		const result = await axios('https://meat-master-backend.herokuapp.com/recipes', {
 			headers: {
 				authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 			},
@@ -44,7 +44,7 @@ function MyAccount() {
 		e.preventDefault();
 		axios
 			.put(
-				`http://localhost:8000/recipes/${id}`,
+				`https://meat-master-backend.herokuapp.com/recipes/${id}`,
 				{
 					name: `${name}`,
 					description: `${description}`,
@@ -69,7 +69,7 @@ function MyAccount() {
 	}, []);
 	const deleteRecipe = (recipe) => {
 		axios
-			.delete(`http://localhost:8000/recipes/${recipe}`, {
+			.delete(`https://meat-master-backend.herokuapp.com/recipes/${recipe}`, {
 				headers: {
 					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
 				},

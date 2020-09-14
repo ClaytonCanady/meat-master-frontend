@@ -3,16 +3,17 @@ import React, { useState, useEffect } from 'react';
 function SingleRecipe(props) {
 	const [data, setData] = useState([]);
 
-	const fetchData =  () => {
-		axios.get(
-			`http://localhost:8000/recipes/${props.match.params.recipeID}`,
-			{
-				headers: {
-					authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
-				},
-			}
-		).then((result) => setData(result.data))
-		
+	const fetchData = () => {
+		axios
+			.get(
+				`https://meat-master-backend.herokuapp.com/recipes/${props.match.params.recipeID}`,
+				{
+					headers: {
+						authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
+					},
+				}
+			)
+			.then((result) => setData(result.data));
 	};
 	useEffect(() => {
 		fetchData();
