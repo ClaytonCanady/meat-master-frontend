@@ -165,7 +165,6 @@ function MyAccount() {
 									<Link to={/recipe/ + recipe.id} recipe={recipe.id}>
 										<h4>{recipe.name}</h4>
 									</Link>
-									<p>{recipe.description}</p>
 									<button onClick={(e) => handleShow(recipe.id, e)}>
 										edit
 									</button>

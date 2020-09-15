@@ -64,7 +64,7 @@ function RecipeList(props) {
 			</div>
 			<div className='recipe-form'>
 				<Modal.Dialog>
-					<Modal.Header closeButton>
+					<Modal.Header>
 						<Modal.Title>Add a New Recipe</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
