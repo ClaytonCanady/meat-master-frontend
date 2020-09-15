@@ -58,7 +58,7 @@ function RecipeList(props) {
 							<Link to={/recipe/ + recipe.id} recipe={recipe.id}>
 								<h4>{recipe.name}</h4>
 							</Link>
-							<p>{recipe.description}</p>
+							
 						</div>
 					))}
 			</div>
