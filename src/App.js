@@ -24,7 +24,9 @@ function App() {
 			return (
 				<div>
 					<Link to='/'>
-						<Button variant='dark'>Home</Button>
+						<Button variant='dark'>
+							Home
+						</Button>
 					</Link>
 					<Link to='/recipe-list'>
 						<Button variant='dark'>Recipes</Button>
@@ -43,9 +45,7 @@ function App() {
 					<Link to='/'>
 						<Button variant='dark'>Home</Button>
 					</Link>
-					<Link to='/recipe-list'>
-						<Button variant='dark'>Recipes</Button>
-					</Link>
+					
 					<Link to='/signUp'>
 						<Button variant='dark'>Sign Up</Button>
 					</Link>

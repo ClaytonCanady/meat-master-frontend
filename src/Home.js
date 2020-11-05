@@ -6,7 +6,7 @@ import smoker from './images/smoker.jpeg';
 function Home(props) {
     return (
 			<div className='home'>
-                <h1>Welcome to the Home of BBQ!</h1>
+                <h1 className='py-3'>Welcome to the Home of BBQ!</h1>
 				<div className='carousel'>
 					<Carousel>
 						<Carousel.Item>
@@ -36,7 +36,7 @@ function Home(props) {
 						</Carousel.Item>
 					</Carousel>
 				</div>
-                <h3>A little About Us.</h3>
+                <h3 className='pt-3'>A little About Us</h3>
                 <p>Here at Meat Master we are passionate about bbq and everything that goes with it. From cold beer beside the charcoal grill you picked up for the beach, all the way to the 200 gallon whole hog roaster you built in the back yard.</p>
 			</div>
 		);

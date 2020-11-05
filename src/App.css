@@ -8,6 +8,9 @@ header {
 	text-decoration: none;
 	justify-content: center;
 }
+.home p {
+	padding: 0 10%;
+}
 .home {
 	text-align: center;
 }

@@ -20,7 +20,7 @@ function MyAccount() {
 				setPhotoUrl(result.data.photo_url);
 				setId(result.data.id);
 			})
-			.then((result) => {
+			.then(() => {
 				setShow(true);
 			});
 	};
