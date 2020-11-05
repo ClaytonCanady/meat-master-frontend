@@ -83,7 +83,7 @@ function MyAccount() {
 
 	return (
 		<div>
-			<h3>my recipes</h3>
+			<h3 className='py-3'>My Recipes</h3>
 
 			<>
 				<Modal show={show} onHide={handleClose}>

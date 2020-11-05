@@ -11,6 +11,9 @@ header {
 .home p {
 	padding: 0 10%;
 }
+.recipe p {
+	padding: 0 10%;
+}
 .home {
 	text-align: center;
 }

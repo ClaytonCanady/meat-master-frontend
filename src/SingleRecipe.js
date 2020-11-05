@@ -20,15 +20,15 @@ function SingleRecipe(props) {
 	});
 	return (
 		<div className='recipe'>
-			<h3>{data.name}</h3>
-			<img src={data.photo_url} alt='' />
-			<p>{data.description}</p>
+			<h3 className='pt-3'>{data.name}</h3>
+			<img src={data.photo_url} alt='' className='pt-3' />
+			<p className='pt-3'>{data.description}</p>
 
-			<h4>Ingredients</h4>
+			<h4 className='pt-3'>Ingredients</h4>
 			<p>{data.ingredients}</p>
-			<h4>Instructions</h4>
+			<h4 className='pt-3'>Instructions</h4>
 			<p>{data.instructions}</p>
-			<h4>Author</h4>
+			<h4 className='pt-3'>Author</h4>
 			<p>{data.author}</p>
 		</div>
 	);
