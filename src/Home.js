@@ -12,7 +12,7 @@ function Home(props) {
 					<Carousel.Item>
 						<img className='d-block w-100' src={grilling} alt='First slide' />
 						<Carousel.Caption>
-							<h3>Check out the recipes tab</h3>
+							<h3 className='text-body'>Login to check out the recipes tab</h3>
 							<p></p>
 						</Carousel.Caption>
 					</Carousel.Item>

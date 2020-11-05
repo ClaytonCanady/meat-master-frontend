@@ -57,9 +57,9 @@ function RecipeList(props) {
 				{data &&
 					data.map((recipe) => (
 						<div key={recipe.id} className='recipe'>
-							<img src={recipe.photo_url} alt='' />
 							<Link to={/recipe/ + recipe.id} recipe={recipe.id}>
-								<h4>{recipe.name}</h4>
+								<img src={recipe.photo_url} alt='' />
+								<h4 className='text-dark'>{recipe.name}</h4>
 							</Link>
 						</div>
 					))}
